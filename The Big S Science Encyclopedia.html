@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Big S Science Encyclopedia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf0;--ink:#1d2433;--muted:#566176;--card:#ffffff;--line:#e4dccb;
+--sp:#2f6fdc;--spb:#e3eeff;--li:#1f9d55;--lib:#def5e5;--ma:#d98a00;--mab:#fff0cc;--hero:#2f6fdc}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a26;--ink:#eef2fa;--muted:#aab4c8;--card:#1d2535;--line:#2e394f;
+--sp:#7ab0ff;--spb:#1b2b4a;--li:#62d68f;--lib:#173626;--ma:#ffc04d;--mab:#3a2c0d;--hero:#1b2b4a}}
+:root[data-theme="dark"]{--bg:#141a26;--ink:#eef2fa;--muted:#aab4c8;--card:#1d2535;--line:#2e394f;
+--sp:#7ab0ff;--spb:#1b2b4a;--li:#62d68f;--lib:#173626;--ma:#ffc04d;--mab:#3a2c0d;--hero:#1b2b4a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;font-size:18px;line-height:1.55;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3,.word{font-family:Fredoka,"Arial Rounded MT Bold",Verdana,sans-serif}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:2px solid var(--line);display:flex;gap:8px;align-items:center;padding:10px 16px;overflow-x:auto}
+.bar a{flex:none;text-decoration:none;color:var(--ink);font-weight:800;padding:8px 14px;border-radius:99px;border:2px solid var(--line);font-size:15px}
+.bar a:focus-visible,.card:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.bar a[href="#space"]{background:var(--spb)}.bar a[href="#living"]{background:var(--lib)}.bar a[href="#matter"]{background:var(--mab)}
+.prog{margin-left:auto;flex:none;font-weight:800;font-size:15px;color:var(--muted);padding-left:10px}
+.hero{background:var(--hero);padding:56px 20px 48px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;max-width:1000px;margin:0 auto;border-radius:0 0 40px 40px}
+.bigS{font-family:Fredoka,Verdana,sans-serif;font-weight:700;font-size:clamp(120px,26vw,240px);line-height:.8;color:var(--sp);transform:rotate(-6deg);margin:0}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:0 0 10px}
+.hero p{margin:0 0 8px;color:var(--muted);max-width:46ch}
+.by{font-weight:800;color:var(--ink)!important}
+main{max-width:1000px;margin:0 auto;padding:0 16px 40px}
+section{margin-top:48px}
+h2{font-size:clamp(26px,4.5vw,36px);margin:0 0 6px;padding:6px 18px;border-radius:16px;display:inline-block}
+#space h2{background:var(--spb);color:var(--sp)}#living h2{background:var(--lib);color:var(--li)}#matter h2{background:var(--mab);color:var(--ma)}
+.hint{color:var(--muted);margin:6px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{text-align:left;font:inherit;color:var(--ink);background:var(--card);border:3px solid var(--c);border-radius:20px;padding:16px 18px;cursor:pointer;transition:transform .15s}
+.card:active{transform:scale(.98)}
+.word{font-size:26px;font-weight:600;color:var(--c);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.word i{font-style:normal;font-size:22px;width:34px;height:34px;border-radius:50%;background:var(--cb);display:grid;place-items:center;flex:none;transition:transform .2s}
+.card[aria-expanded="true"] .word i{transform:rotate(45deg)}
+.mean{margin:6px 0 0}
+.fact{display:none;margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--cb);font-weight:600}
+.fact b{display:block;font-family:Fredoka,sans-serif;color:var(--c);font-weight:600}
+.card[aria-expanded="true"] .fact{display:block}
+.space{--c:var(--sp);--cb:var(--spb)}.living{--c:var(--li);--cb:var(--lib)}.matter{--c:var(--ma);--cb:var(--mab)}
+.end{margin-top:56px;text-align:center;padding:28px 18px;border-radius:24px;background:var(--card);border:3px dashed var(--line)}
+.end h3{margin:0 0 6px;font-size:28px}
+.end button{font:inherit;font-weight:800;border:0;border-radius:99px;padding:10px 20px;background:var(--sp);color:#fff;cursor:pointer;margin-top:10px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .end button{color:#10203a}}
+.bar a[href="#game"]{background:var(--ink);color:var(--bg)}
+#game h2{background:var(--card);border:3px solid var(--ink)}
+.gbox{background:var(--card);border:3px solid var(--ink);border-radius:24px;padding:20px}
+.gbox p{margin:0 0 12px}.gmeta{font-weight:800;color:var(--muted)}
+.clues{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:8px}
+.clues li{background:var(--spb);border-radius:14px;padding:10px 14px;font-weight:600}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.opt,.gbtn{font:inherit;font-weight:800;color:var(--ink);background:var(--bg);border:3px solid var(--line);border-radius:16px;padding:12px;cursor:pointer}
+.gbtn{background:var(--ink);color:var(--bg);border-color:var(--ink);border-radius:99px;padding:10px 20px;margin:0 8px 8px 0}
+.gbtn.alt{background:var(--bg);color:var(--ink)}
+.opt:focus-visible,.gbtn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.opt.ok{background:var(--lib);border-color:var(--li)}.opt.no{background:var(--mab);border-color:var(--ma)}
+.res{border-radius:16px;background:var(--lib);padding:12px 14px;margin-bottom:12px}.res.bad{background:var(--mab)}
+.res b{font-family:Fredoka,sans-serif;font-size:22px}
+.rev{padding-left:18px;margin:0 0 12px}
+.cert{text-align:center;border:5px double var(--m);border-radius:20px;padding:20px 16px;margin:0 0 14px;background:var(--card)}
+.cert p{margin:0 0 8px}
+.medal{display:inline-grid;place-items:center;width:92px;height:92px;border-radius:50%;background:var(--m);color:#fff;font-family:Fredoka,sans-serif;font-weight:700;font-size:20px;margin-bottom:8px;box-shadow:inset 0 0 0 6px rgba(255,255,255,.35)}
+.ct{font-family:Fredoka,sans-serif;font-size:20px;color:var(--muted)}
+.cn{font-family:Fredoka,sans-serif;font-size:34px;font-weight:700;color:var(--m);overflow-wrap:anywhere}
+.gin{font:inherit;padding:8px 12px;border-radius:12px;border:3px solid var(--line);background:var(--bg);color:var(--ink);margin-left:6px;max-width:100%}
+@media (max-width:560px){.hero{grid-template-columns:1fr;text-align:center;padding-top:36px}.bigS{font-size:120px}.hero p{margin-inline:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.word i{transition:none}}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Sections">
+<a href="#game">Clue Game</a><a href="#space">Space and Earth</a><a href="#living">Living Things</a><a href="#matter">Materials and Matter</a>
+<span class="prog" id="prog" aria-live="polite">Explored 0 of 14</span>
+</nav>
+<header class="hero">
+<p class="bigS" aria-hidden="true">S</p>
+<div>
+<h1>The Big S Science Encyclopedia</h1>
+<p>Welcome, explorer! S is for science. Tap any word to unlock its fun fact, and see if you can explore all 14.</p>
+<p class="by">By Muhammad Nauman, Year 6N</p>
+</div>
+</header>
+<main><section id="game"><h2>Clue Game</h2><p class="hint">Clues appear one at a time. Guess early for more points, then read the full info.</p><div class="gbox" id="gbox"><p>Can you guess each S word from its clues? You get 3 points for a guess after one clue, 2 after two, and 1 after three. Every word you play unlocks its card below, so you can review it later.</p><button class="gbtn" data-act="start" type="button">Start the game</button></div></section><div id="main"></div></main>
+<script>
+var DATA=[
+{id:"space",cls:"space",title:"Space and Earth",hint:"From the Sun to the seasons.",items:[
+["Sun","A star at the centre of our Solar System. It gives us light and heat. Never look straight at it.","More than one million Earths could fit inside it."],
+["Star","A huge, glowing ball of hot gas that makes its own light. The Sun is the closest one to Earth.","Other stars are so far away that their light takes many years to reach us."],
+["Solar System","The Sun and everything that travels around it: eight planets, moons, asteroids and comets.","Earth is the third planet from the Sun."],
+["Satellite","An object that moves around a larger object in space. The Moon is a natural satellite of Earth.","Artificial satellites help with weather forecasts, TV signals and phone maps."],
+["Seasons","Spring, summer, autumn and winter. They happen because Earth is tilted as it orbits the Sun.","Summer days are longer and warmer; winter days are shorter and colder."]]},
+{id:"living",cls:"living",title:"Living Things",hint:"Plants, animals and you.",items:[
+["Species","A group of living things that are very alike and can reproduce together. All domestic dogs are one species.","There are millions of species, from tiny bacteria to huge blue whales."],
+["Seed","The part of a plant that grows into a new plant. It needs water, warmth and oxygen to germinate.","Seeds are dispersed by wind, water, animals and even exploding seed pods."],
+["Stem","The part of a plant that holds it up and carries water and nutrients to the leaves.","A tree trunk is a very thick, woody stem."],
+["Skeleton","The framework of bones inside many animals. It supports and protects the body and helps us move.","An adult human has 206 bones."],
+["Senses","Sight, hearing, smell, taste and touch. Our eyes, ears, nose, tongue and skin send messages to the brain.","Your brain uses all five senses to tell you what is happening around you."]]},
+{id:"matter",cls:"matter",title:"Materials and Matter",hint:"Solids, sounds and soil.",items:[
+["Solid","A state of matter that keeps its shape. Its particles are packed tightly and only vibrate in place.","Rock, wood and ice are solids. The other states are liquids and gases."],
+["Soluble","A material that dissolves in a liquid to make a solution. Sugar is soluble in water; sand is not.","You can get a dissolved solid back by evaporating the liquid."],
+["Sound","Made when something vibrates. The vibrations travel as sound waves until they reach our ears.","Sound cannot travel in space because there is no air."],
+["Soil","The top layer of the ground, made of tiny rock pieces, rotted plants and animals, water and air.","Earthworms keep soil healthy by mixing it and letting air in."]]}
+];
+var seen=new Set(),main=document.getElementById("main"),prog=document.getElementById("prog");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+main.innerHTML=DATA.map(function(s){return '<section id="'+s.id+'"><h2>'+s.title+'</h2><p class="hint">'+s.hint+'</p><div class="grid">'+
+s.items.map(function(it){return '<button class="card '+s.cls+'" aria-expanded="false" data-w="'+esc(it[0])+'"><span class="word">'+esc(it[0])+'<i aria-hidden="true">+</i></span><p class="mean">'+esc(it[1])+'</p><span class="fact"><b>Fun fact</b>'+esc(it[2])+'</span></button>'}).join("")+'</div></section>'}).join("")+
+'<div class="end" id="end"><h3>Keep exploring!</h3><p><strong id="endmsg">Open every card to finish the encyclopedia.</strong> Did you know? The word “science” comes from the Latin word <em>scientia</em>, meaning “knowledge”.</p><button id="reset" type="button">Start again</button></div>';
+main.addEventListener("click",function(e){var c=e.target.closest(".card");if(!c)return;
+var open=c.getAttribute("aria-expanded")==="true";c.setAttribute("aria-expanded",open?"false":"true");
+if(!open){seen.add(c.dataset.w);update()}});
+function update(){prog.textContent="Explored "+seen.size+" of 14";
+document.getElementById("endmsg").textContent=seen.size===14?"Brilliant! You explored every S word.":"Open every card to finish the encyclopedia."}
+document.getElementById("reset").addEventListener("click",function(){seen.clear();document.querySelectorAll(".card").forEach(function(c){c.setAttribute("aria-expanded","false")});update();window.scrollTo({top:0})});
+var CL={"Sun":["I am a star, but I am much closer than all the others.","I give Earth light and heat.","More than a million Earths could fit inside me."],
+"Star":["I make my own light.","I am a huge ball of hot gas.","My light can take many years to reach you."],
+"Solar System":["I have eight planets.","Moons, asteroids and comets belong to me too.","Earth is my third planet from the middle."],
+"Satellite":["I travel around something bigger than me.","The Moon is a natural one of me.","People launch me to help with weather forecasts and maps."],
+"Seasons":["There are four of me each year.","I happen because Earth is tilted.","Spring, summer, autumn and winter are me."],
+"Species":["I am a group of living things.","My members are very alike and can have young together.","All domestic dogs belong to one of me."],
+"Seed":["I am small, but I hold a baby plant.","I need water, warmth and oxygen to start growing.","Wind, water and animals can spread me."],
+"Stem":["I am part of a plant.","I hold the plant up.","I carry water and nutrients to the leaves."],
+"Skeleton":["I am inside many animals.","I am a framework of bones.","An adult human has 206 of my bones."],
+"Senses":["There are five of me.","Sight and hearing are two of me.","I send messages from eyes, ears, nose, tongue and skin to the brain."],
+"Solid":["I keep my shape.","My particles are packed tightly together.","Rock, wood and ice are me."],
+"Soluble":["I describe a material.","I mix into a liquid and seem to disappear.","Sugar is me in water, but sand is not."],
+"Sound":["You cannot see me.","I am made when something vibrates.","I cannot travel in space."],
+"Soil":["I am the top layer of the ground.","Plants grow in me.","Earthworms mix me up."]};
+var ALL=[];DATA.forEach(function(s){s.items.forEach(function(it){ALL.push({w:it[0],m:it[1],f:it[2]})})});
+var gq=[],gi=0,gc=1,gs=0,gmiss=[],gopts=[],gbox=document.getElementById("gbox");
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function gstart(list){gq=shuf(list);gi=0;gs=0;gmiss=[];gsetup()}
+function gsetup(){if(gi>=gq.length){return gfinish()}gc=1;var cur=gq[gi];
+gopts=shuf([cur].concat(shuf(ALL.filter(function(x){return x.w!==cur.w})).slice(0,3)));grender()}
+function grender(){var cur=gq[gi],cl=CL[cur.w];
+gbox.innerHTML='<p class="gmeta">Word '+(gi+1)+' of '+gq.length+'. Score: '+gs+'</p><ul class="clues">'+cl.slice(0,gc).map(function(c,i){return '<li><strong>Clue '+(i+1)+':</strong> '+c+'</li>'}).join("")+'</ul>'+
+(gc<3?'<button class="gbtn alt" data-act="clue" type="button">Another clue</button>':'')+
+'<p class="gmeta">Which S word am I? (worth '+(4-gc)+' point'+(gc===3?'':'s')+')</p><div class="opts">'+gopts.map(function(o){return '<button class="opt" data-w="'+o.w+'" type="button">'+o.w+'</button>'}).join("")+'</div>'}
+gbox.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var a=b.dataset.act;
+if(a==="start"){gstart(ALL)}else if(a==="clue"){gc++;grender()}else if(a==="next"){gi++;gsetup()}else if(a==="again"){gstart(ALL)}else if(a==="missed"){gstart(gmiss)}
+else if(b.classList.contains("opt")){var cur=gq[gi],ok=b.dataset.w===cur.w,pts=ok?4-gc:0;gs+=pts;if(!ok){gmiss.push(cur)}
+gbox.querySelectorAll(".opt").forEach(function(o){o.disabled=true;if(o.dataset.w===cur.w){o.classList.add("ok")}else if(o===b){o.classList.add("no")}});
+var r=document.createElement("div");r.className="res"+(ok?"":" bad");
+r.innerHTML='<b>'+(ok?'Correct! +'+pts+' point'+(pts===1?'':'s'):'Not quite. It was '+cur.w+'.')+'</b><p>'+cur.m+'</p><p><strong>Fun fact:</strong> '+cur.f+'</p>';
+gbox.appendChild(r);var n=document.createElement("button");n.className="gbtn";n.dataset.act="next";n.type="button";n.textContent=(gi+1<gq.length)?"Next word":"See my score";gbox.appendChild(n);n.focus();
+seen.add(cur.w);update();var card=document.querySelector('.card[data-w="'+cur.w+'"]');if(card){card.setAttribute("aria-expanded","true")}}});
+function gfinish(){var max=gq.length*3;gbox.innerHTML='<p class="gmeta">Game over</p><h3 style="margin:0 0 8px;font-size:28px">You scored '+gs+' out of '+max+'</h3>'+reward(max)+
+(gmiss.length?'<p>Words to review:</p><ul class="rev">'+gmiss.map(function(m){return '<li><strong>'+m.w+'</strong>: '+m.m+'</li>'}).join("")+'</ul><button class="gbtn" data-act="missed" type="button">Replay missed words</button>':'<p>You got every word. Brilliant!</p>')+
+'<button class="gbtn alt" data-act="again" type="button">Play all again</button><p>Every word you played is open in the cards below, so you can scroll down and review.</p>'}
+function reward(max){var p=gs/max,t=p>=0.9?["Gold","Super Scientist","#d98a00"]:p>=0.6?["Silver","Science Explorer","#6b7a90"]:["Bronze","Junior Explorer","#a8642a"];
+setTimeout(confetti,60);
+return '<div class="cert" style="--m:'+t[2]+'"><div class="medal">'+t[0]+'</div><p class="ct">Certificate of Science Exploring</p><p class="cn" id="cname">Explorer</p><p>is awarded the title <strong>'+t[1]+'</strong> for scoring '+gs+' out of '+max+' in the Big S Science Game.</p></div><p><label>Type your name for the certificate: <input id="gname" class="gin" maxlength="30" autocomplete="off"></label></p>'}
+function confetti(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;var cols=["#2f6fdc","#1f9d55","#d98a00","#e0445a","#8a5cf6"],box=document.createElement("div");
+box.style.cssText="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:9";document.body.appendChild(box);
+for(var i=0;i<60;i++){var s=document.createElement("span");s.style.cssText="position:absolute;top:-16px;left:"+Math.random()*100+"%;width:10px;height:14px;border-radius:2px;background:"+cols[i%5];box.appendChild(s);
+s.animate([{transform:"translateY(0) rotate(0deg)"},{transform:"translateY("+(innerHeight+40)+"px) rotate("+(360+Math.random()*360)+"deg)"}],{duration:1800+Math.random()*1800,delay:Math.random()*600,easing:"ease-in",fill:"forwards"})}
+setTimeout(function(){box.remove()},4500)}
+gbox.addEventListener("input",function(e){if(e.target.id==="gname"){document.getElementById("cname").textContent=e.target.value.trim()||"Explorer"}});
+</script>
+</body>
+</html>
